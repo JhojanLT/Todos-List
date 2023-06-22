@@ -1,0 +1,21 @@
+.containerTodoItem {
+  background-color: #262626;
+  list-style: none;
+  padding: 16px;
+  display: flex;
+  position: relative;
+  color: #f2f2f2;
+  font-size: 14px;
+  line-height: 140%;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  align-items: center;
+  &__mark {
+    display: flex;
+    margin-right: 12px;
+  }
+  &__deleteButton {
+    position: absolute;
+    right: 16px;
+  }
+}

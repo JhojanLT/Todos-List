@@ -1,25 +1,37 @@
 @font-face {
-    font-family: 'inter';
-    src: url(./fonts/Inter/static/Inter-Regular.ttf);
-    font-weight: normal;
-    font-style: normal;
+  font-family: "inter";
+  src: url(./fonts/Inter/static/Inter-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'inter';
-    src: url(./fonts/Inter/static/Inter-Bold.ttf);
-    font-weight: bold;
-    font-style: bold;
+  font-family: "inter";
+  src: url(./fonts/Inter/static/Inter-Bold.ttf);
+  font-weight: bold;
+  font-style: bold;
 }
 
 @font-face {
-    font-family: 'inter';
-    src: url(./fonts/Inter/static/Inter-Black.ttf);
-    font-weight: 900;
-    font-style: 900;
+  font-family: "inter";
+  src: url(./fonts/Inter/static/Inter-Black.ttf);
+  font-weight: 900;
+  font-style: 900;
 }
 
-.contentMain{
-    max-width: 750px;
-    margin: auto;
+.contentMain {
+  max-width: 750px;
+  margin: auto;
+}
+
+.todoSearch-container {
+  display: flex;
+  position: relative;
+  margin-bottom: 3rem;
+  .todoSearch-container-align {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: -20px;
+  }
 }

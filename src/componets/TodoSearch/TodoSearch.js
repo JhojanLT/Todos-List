@@ -1,7 +1,12 @@
+import "./TodoSearch.scss";
 function TodoSearch() {
-    return(
-        <input type="text" />
-    );
+  return (
+    <input
+      className="todoSearch"
+      type="text"
+      placeholder="Añadir nueva tarea"
+    />
+  );
 }
 
-export { TodoSearch }
+export { TodoSearch };

@@ -1,12 +1,19 @@
-import './TodoCounter.scss'
+import "./TodoCounter.scss";
 
-function TodoCounter( { total, completed} ){
-    return(
-        <div className="containerCount">
-            <p className="containerCount__text--left">Tarefas creadas: <span>{total}</span></p>
-            <p className="containerCount__text--right">Concluídas: <span>{completed}</span></p> 
-        </div>
-    );
+function TodoCounter({ total, completed }) {
+  return (
+    <div className="containerCount">
+      <p className="containerCount__text--left">
+        Tarefas creadas: <span>{total}</span>
+      </p>
+      <p className="containerCount__text--right">
+        Concluídas:{" "}
+        <span>
+          {completed} de {total}
+        </span>
+      </p>
+    </div>
+  );
 }
 
 export { TodoCounter };
