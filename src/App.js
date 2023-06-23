@@ -21,11 +21,9 @@ function App() {
       <TodoHeader></TodoHeader>
 
       <main className="contentMain">
-        <div className="todoSearch-container">
-          <div className="todoSearch-container-align">
-            <TodoSearch className="todoSearch" />
-            <CreateTodoButton />
-          </div>
+        <div className="todoSearchContainer">
+          <TodoSearch />
+          <CreateTodoButton />
         </div>
 
         <TodoCounter completed={5} total={10} />

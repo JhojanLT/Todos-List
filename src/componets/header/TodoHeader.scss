@@ -1,22 +1,23 @@
-.containerHeader{
-    background-color: #0D0D0D;
-    height: 200px;
+.containerHeader {
+  background-color: #0d0d0d;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .containerTitle {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    .containerTitle{
-        display: flex;
-        &__img{
-            margin-right: 12px;
-        }
-        &__title{
-            font-family: 'inter';
-            font-size: 40px;
-            font-weight: 900;
-            color: #4EA8DE;
-            span{
-                color: #5E60CE;
-            }
-        }
+    &__img {
+      margin-right: 12px;
     }
+    &__title {
+      font-family: "inter";
+      font-size: 40px;
+      font-weight: 900;
+      color: #4ea8de;
+      span {
+        color: #5e60ce;
+      }
+    }
+  }
 }
