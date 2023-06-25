@@ -1,11 +1,12 @@
 import { TodoCounter } from "./componets/TodoCounter/TodoCounter";
 import { TodoItem } from "./componets/TodoItem/TodoItem";
-import { TodoSearch } from "./componets/TodoSearch/TodoSearch";
 import { TodoList } from "./componets/TodoList/TodoList";
 import { CreateTodoButton } from "./componets/CreateTodoButton/CreateTodoButton";
 import { TodoHeader } from "./componets/header/TodoHeader";
 import "./App.scss";
 import React from "react";
+import { TodoSearch } from "./componets/TodoSearch/TodoSearch";
+import { TodoCreate } from "./componets/TodoCreate/TodoCreate";
 
 const defaultTodo = [
   { key: 1, text: "tarea 1", completed: true },
@@ -22,12 +23,12 @@ function App() {
 
       <main className="contentMain">
         <div className="todoSearchContainer">
-          <TodoSearch />
+          <TodoCreate />
           <CreateTodoButton />
         </div>
 
         <TodoCounter completed={5} total={10} />
-
+        <TodoSearch />
         <TodoList>
           {defaultTodo.map((todo) => (
             <TodoItem
