@@ -8,11 +8,11 @@ import "./App.scss";
 import React from "react";
 
 const defaultTodo = [
-  { key: 1, tetx: "tarea 1", completed: false },
-  { key: 2, tetx: "tarea 2", completed: false },
-  { key: 3, tetx: "tarea 3", completed: false },
-  { key: 4, tetx: "tarea 4", completed: false },
-  { key: 5, tetx: "tarea 5", completed: false },
+  { key: 1, text: "tarea 1", completed: true },
+  { key: 2, text: "tarea 2", completed: false },
+  { key: 3, text: "tarea 3", completed: false },
+  { key: 4, text: "tarea 4", completed: true },
+  { key: 5, text: "tarea 5", completed: false },
 ];
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
           {defaultTodo.map((todo) => (
             <TodoItem
               key={todo.key}
-              tarea={todo.tetx}
+              tarea={todo.text}
               status={todo.completed}
             />
           ))}

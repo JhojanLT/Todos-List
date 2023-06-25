@@ -7,10 +7,7 @@ function TodoCounter({ total, completed }) {
         Tarefas creadas: <span>{total}</span>
       </p>
       <p className="containerCount__text--right">
-        Concluídas:{" "}
-        <span>
-          {completed} de {total}
-        </span>
+        Concluídas: <span>{completed}</span>
       </p>
     </div>
   );
