@@ -4,6 +4,12 @@ import { TodoList } from "./componets/TodoList/TodoList";
 import { CreateTodoButton } from "./componets/CreateTodoButton/CreateTodoButton";
 import { TodoHeader } from "./componets/header/TodoHeader";
 import "./App.scss";
+/*import "./scss/variables.scss";
+import "./scss/font.scss";
+import "./scss/function.scss";
+import "./scss/mixing.scss";
+import "./scss/reset.scss";*/
+
 import React from "react";
 import { TodoSearch } from "./componets/TodoSearch/TodoSearch";
 import { TodoCreate } from "./componets/TodoCreate/TodoCreate";
