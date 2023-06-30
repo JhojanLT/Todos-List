@@ -27,10 +27,20 @@ function App() {
   const [todos, setTodos] = React.useState(defaultTodo);
   const [searchValue, setSearchValue] = React.useState("");
 
+  // función texto sin tildes
+  const noTildes = (text) => {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
+
   const completedTodos = todos.filter((todo) => !!todo.completed).length; //la doble negacion unicamnente indica que la variable esta usando valores booleanos
-  const searchedTodos = todos.filter((todo) => todo.text.includes(searchValue));
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = noTildes(todo.text.toLowerCase());
+    const searchText = noTildes(searchValue.toLowerCase());
+    return todoText.includes(searchText);
+  });
 
   const totalTodos = todos.length;
+
   return (
     <React.Fragment>
       <TodoHeader></TodoHeader>
