@@ -23,6 +23,11 @@ const defaultTodo = [
 ];
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodo);
+  const [searchValue, setSearchValue] = React.useState("");
+
+  const completedTodos = todos.filter((todo) => !!todo.completed).length; //la doble negacion unicamnente indica que la variable esta usando valores booleanos
+
   return (
     <React.Fragment>
       <TodoHeader></TodoHeader>
@@ -33,10 +38,10 @@ function App() {
           <CreateTodoButton />
         </div>
 
-        <TodoCounter completed={5} total={10} />
-        <TodoSearch />
+        <TodoCounter completed={completedTodos} total={3} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
-          {defaultTodo.map((todo) => (
+          {todos.map((todo) => (
             <TodoItem
               key={todo.key}
               tarea={todo.text}
