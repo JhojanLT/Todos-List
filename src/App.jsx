@@ -43,13 +43,19 @@ function App() {
 
   const completeTodos = (text) => {
     const newTodos = [...todos]; //Copia del estado del array de todos
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text); //Recorre la copia del array (newTodos) para encontrar el index, segun el parametro indicado
     newTodos[todoIndex].completed
       ? (newTodos[todoIndex].completed = false)
       : (newTodos[todoIndex].completed = true);
     setTodos(newTodos);
   };
 
+  const deleteTodos = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
   return (
     <React.Fragment>
       <TodoHeader></TodoHeader>
@@ -68,6 +74,7 @@ function App() {
               tarea={todo.text}
               status={todo.completed}
               onComplete={() => completeTodos(todo.text)}
+              onDelete={() => deleteTodos(todo.text)}
             />
           ))}
         </TodoList>
