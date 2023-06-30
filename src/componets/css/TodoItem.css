@@ -1,0 +1,52 @@
+.containerTodoItem, .containerTodoItem--active {
+  background-color: #262626;
+  list-style: none;
+  padding: 16px;
+  display: flex;
+  position: relative;
+  color: #f2f2f2;
+  font-size: 14px;
+  line-height: 140%;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  align-items: center;
+}
+.containerTodoItem__mark {
+  display: flex;
+  margin-right: 12px;
+  border-radius: 50%;
+  border: solid 2px;
+  width: 17.5px;
+  height: 17.5px;
+  color: #4ea8de;
+}
+.containerTodoItem__mark::before {
+  position: absolute;
+  width: 5px;
+  height: 8px;
+  border-right: solid 1px #ffffff;
+  border-bottom: solid 1px #ffffff;
+  transform: rotate(45deg);
+  top: 3px;
+}
+.containerTodoItem__deleteButton {
+  position: absolute;
+  right: 16px;
+  cursor: pointer;
+}
+.containerTodoItem--active .containerTodoItem__mark {
+  background-color: #5e60ce;
+  border: none;
+  top: 0px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerTodoItem--active .containerTodoItem__mark::before {
+  content: "";
+}
+.containerTodoItem--active .containerTodoItem__text {
+  text-decoration: line-through;
+  color: #808080;
+}/*# sourceMappingURL=TodoItem.css.map */

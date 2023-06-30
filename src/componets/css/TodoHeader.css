@@ -1,0 +1,23 @@
+.containerHeader {
+  background-color: #0d0d0d;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.containerHeader .containerTitle {
+  display: flex;
+}
+.containerHeader .containerTitle__img {
+  margin-right: 12px;
+}
+.containerHeader .containerTitle__title {
+  font-family: "inter";
+  font-size: 40px;
+  font-weight: 900;
+  color: #4ea8de;
+}
+.containerHeader .containerTitle__title span {
+  color: #5e60ce;
+}/*# sourceMappingURL=TodoHeader.css.map */

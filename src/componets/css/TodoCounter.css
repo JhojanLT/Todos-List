@@ -1,0 +1,21 @@
+.containerCount {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.containerCount__text, .containerCount__text--right, .containerCount__text--left {
+  font-size: 14px;
+  font-weight: bold;
+}
+.containerCount__text--right span, .containerCount__text--left span {
+  padding: 2px 8px;
+  background-color: #333333;
+  border-radius: 100px;
+  margin-left: 8px;
+}
+.containerCount__text--left {
+  color: #4ea8de;
+}
+.containerCount__text--right {
+  color: #8284fa;
+}/*# sourceMappingURL=TodoCounter.css.map */

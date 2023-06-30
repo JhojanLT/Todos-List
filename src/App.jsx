@@ -16,7 +16,7 @@ import { TodoCreate } from "./componets/TodoCreate/TodoCreate";
 
 const defaultTodo = [
   { text: "tarea 1", completed: false },
-  { text: "tarea 2", completed: false },
+  { text: "tarea 2", completed: true },
   { text: "tarea 3", completed: false },
   { text: "tarea 4", completed: true },
   { text: "tarea 5", completed: false },
@@ -41,6 +41,15 @@ function App() {
 
   const totalTodos = todos.length;
 
+  const completeTodos = (text) => {
+    const newTodos = [...todos]; //Copia del estado del array de todos
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    newTodos[todoIndex].completed
+      ? (newTodos[todoIndex].completed = false)
+      : (newTodos[todoIndex].completed = true);
+    setTodos(newTodos);
+  };
+
   return (
     <React.Fragment>
       <TodoHeader></TodoHeader>
@@ -58,6 +67,7 @@ function App() {
               key={todo.text}
               tarea={todo.text}
               status={todo.completed}
+              onComplete={() => completeTodos(todo.text)}
             />
           ))}
         </TodoList>

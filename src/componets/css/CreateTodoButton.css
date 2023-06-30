@@ -1,0 +1,17 @@
+.Button {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1e6f9f;
+  border: none;
+  width: 5rem;
+  border-radius: 5px;
+  padding: 0.75rem 0.75rem;
+  color: white;
+  font-size: 14px;
+  align-items: center;
+  cursor: pointer;
+}
+.Button .PlusImg {
+  width: 14px;
+  height: auto;
+}/*# sourceMappingURL=CreateTodoButton.css.map */

@@ -1,0 +1,13 @@
+.contentMain {
+  padding-top: 80px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.todoSearchContainer {
+  display: flex;
+  position: absolute;
+  width: 46.8rem;
+  top: 11.25rem;
+  margin-bottom: 3rem;
+}/*# sourceMappingURL=layout.css.map */

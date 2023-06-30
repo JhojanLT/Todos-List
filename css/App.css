@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter/static/Inter-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter/static/Inter-Bold.ttf);
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter/static/Inter-Black.ttf);
+  font-weight: 900;
+  font-style: 900;
+}
+* {
+  font-family: "inter";
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  font-size: 10px;
+}
+
+.contentMain {
+  padding-top: 80px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.todoSearchContainer {
+  display: flex;
+  position: absolute;
+  width: 46.8rem;
+  top: 11.25rem;
+  margin-bottom: 3rem;
+}/*# sourceMappingURL=App.css.map */
