@@ -15,11 +15,12 @@ import { TodoSearch } from "./componets/TodoSearch/TodoSearch";
 import { TodoCreate } from "./componets/TodoCreate/TodoCreate";
 
 const defaultTodo = [
-  { key: 1, text: "tarea 1", completed: true },
-  { key: 2, text: "tarea 2", completed: false },
-  { key: 3, text: "tarea 3", completed: false },
-  { key: 4, text: "tarea 4", completed: true },
-  { key: 5, text: "tarea 5", completed: false },
+  { text: "tarea 1", completed: false },
+  { text: "tarea 2", completed: false },
+  { text: "tarea 3", completed: false },
+  { text: "tarea 4", completed: true },
+  { text: "tarea 5", completed: false },
+  { text: "tarea 6", completed: false },
 ];
 
 function App() {
@@ -27,7 +28,9 @@ function App() {
   const [searchValue, setSearchValue] = React.useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length; //la doble negacion unicamnente indica que la variable esta usando valores booleanos
+  const searchedTodos = todos.filter((todo) => todo.text.includes(searchValue));
 
+  const totalTodos = todos.length;
   return (
     <React.Fragment>
       <TodoHeader></TodoHeader>
@@ -37,13 +40,12 @@ function App() {
           <TodoCreate />
           <CreateTodoButton />
         </div>
-
-        <TodoCounter completed={completedTodos} total={3} />
+        <TodoCounter completed={completedTodos} total={totalTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
-          {todos.map((todo) => (
+          {searchedTodos.map((todo) => (
             <TodoItem
-              key={todo.key}
+              key={todo.text}
               tarea={todo.text}
               status={todo.completed}
             />

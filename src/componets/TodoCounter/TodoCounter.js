@@ -4,10 +4,10 @@ function TodoCounter({ total, completed }) {
   return (
     <div className="containerCount">
       <p className="containerCount__text--right">
-        Concluídas: <span>{completed}</span>
+        Tareas concluídas: <span>{completed}</span>
       </p>
       <p className="containerCount__text--left">
-        Tarefas creadas: <span>{total}</span>
+        Tareas creadas: <span>{total}</span>
       </p>
     </div>
   );
