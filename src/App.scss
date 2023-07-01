@@ -1,7 +1,9 @@
-@import './scss/variables.scss';
-@import './scss/font.scss';
-@import './scss/function.scss';
-@import './scss/mixing.scss';
-@import './scss/reset.scss';
-@import './scss/general.scss';
-@import './scss/layout.scss';
+@import "./scss/variables.scss";
+@import "./scss/font.scss";
+@import "./scss/function.scss";
+@import "./scss/mixing.scss";
+@import "./scss/reset.scss";
+@import "./scss/general.scss";
+@import "./scss/layout.scss";
+
+@import "./componets/TodoCounter/TodoCounter.scss";

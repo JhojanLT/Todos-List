@@ -1,13 +1,36 @@
 .contentMain {
-    padding-top: 80px;
-    max-width: 750px;
-    margin: auto;
+  padding-top: 80px;
+  max-width: 750px;
+  margin: auto;
 }
 
 .todoSearchContainer {
-    display: flex;
-    position: absolute;
-    width: 46.8rem;
-    top: 11.25rem;
-    margin-bottom: 3rem;
+  display: flex;
+  position: absolute;
+  width: 46.8rem;
+  top: 11.25rem;
+  margin-bottom: 3rem;
+}
+
+.containerCongrats {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: center;
+  &__text {
+    @extend .containerCount__text;
+  }
+  &--left {
+    @extend .containerCount__text;
+    color: #4ea8de;
+    span {
+      @extend %spanNumber;
+    }
+  }
+  &--right {
+    @extend .containerCount__text;
+    color: #8284fa;
+    span {
+      @extend %spanNumber;
+    }
+  }
 }

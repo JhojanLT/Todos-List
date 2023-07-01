@@ -65,7 +65,20 @@ function App() {
           <TodoCreate />
           <CreateTodoButton />
         </div>
-        <TodoCounter completed={completedTodos} total={totalTodos} />
+        {completedTodos === totalTodos ? (
+          <div className="containerCongrats">
+            <p className="containerCongrats__text">
+              <span className="containerCount__text--right">
+                {"¡Has Completado "}
+              </span>
+              <span className="containerCount__text--left">
+                {"todos los TODOS!"}
+              </span>
+            </p>
+          </div>
+        ) : (
+          <TodoCounter completed={completedTodos} total={totalTodos} />
+        )}
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
           {searchedTodos.map((todo) => (
