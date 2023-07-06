@@ -14,17 +14,30 @@ import React from "react";
 import { TodoSearch } from "./componets/TodoSearch/TodoSearch";
 import { TodoCreate } from "./componets/TodoCreate/TodoCreate";
 
-const defaultTodo = [
-  { text: "tarea 1", completed: false },
-  { text: "tarea 2", completed: true },
-  { text: "tarea 3", completed: false },
-  { text: "tarea 4", completed: true },
-  { text: "tarea 5", completed: false },
-  { text: "tarea 6", completed: false },
-];
+// const defaultTodo = [
+//   { text: "tarea 1", completed: false },
+//   { text: "tarea 2", completed: true },
+//   { text: "tarea 3", completed: false },
+//   { text: "tarea 4", completed: true },
+//   { text: "tarea 5", completed: false },
+//   { text: "tarea 6", completed: false },
+// ];
+
+// localStorage.setItem("TODOS_V1", defaultTodo);
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodo);
+  const localStorageTodos = localStorage.getItem("TODOS_V1"); // asigno TODOS_V1 a la variable localStorageTodos, que en este momento es vacia
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem("TODOS_V1", JSON.stringify([])); //Si localStorageTodos es false, se asignara un array vacio al localStorage y a la variable parsedTodos
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos); //Si es true, parsedTodos sera igual al contenido de localStorageTodos convertido en un array el cual previamente fue convertido en string
+  }
+
+  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState("");
 
   // función texto sin tildes
@@ -41,20 +54,25 @@ function App() {
 
   const totalTodos = todos.length;
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem("TODOS_V1", JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
   const completeTodos = (text) => {
     const newTodos = [...todos]; //Copia del estado del array de todos
     const todoIndex = newTodos.findIndex((todo) => todo.text === text); //Recorre la copia del array (newTodos) para encontrar el index, segun el parametro indicado
     newTodos[todoIndex].completed
       ? (newTodos[todoIndex].completed = false)
       : (newTodos[todoIndex].completed = true);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const deleteTodos = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
   return (
     <React.Fragment>
