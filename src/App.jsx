@@ -10,9 +10,10 @@ import "./scss/function.scss";
 import "./scss/mixing.scss";
 import "./scss/reset.scss";*/
 
-import React from "react";
+import React, { useState } from "react";
 import { TodoSearch } from "./componets/TodoSearch/TodoSearch";
 import { TodoCreate } from "./componets/TodoCreate/TodoCreate";
+// import { useState } from "react";
 
 // const defaultTodo = [
 //   { text: "tarea 1", completed: false },
@@ -23,21 +24,35 @@ import { TodoCreate } from "./componets/TodoCreate/TodoCreate";
 //   { text: "tarea 6", completed: false },
 // ];
 
-// localStorage.setItem("TODOS_V1", defaultTodo);
+// localStorage.setItem(itemName, defaultTodo);
 
-function App() {
-  const localStorageTodos = localStorage.getItem("TODOS_V1"); // asigno TODOS_V1 a la variable localStorageTodos, que en este momento es vacia
+//ESTE ES UN CUSTOM HOOK
+function useLocalStorage(itemName, initialValue) {
+  const localStorageItem = localStorage.getItem(itemName); // asignoitemNamea la variable localStorageItem, que en este momento es vacia
 
-  let parsedTodos;
+  let parsedItem;
 
-  if (!localStorageTodos) {
-    localStorage.setItem("TODOS_V1", JSON.stringify([])); //Si localStorageTodos es false, se asignara un array vacio al localStorage y a la variable parsedTodos
-    parsedTodos = [];
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue)); //Si localStorageItem es false, se asignara un array vacio al localStorage y a la variable parsedItem
+    parsedItem = initialValue;
   } else {
-    parsedTodos = JSON.parse(localStorageTodos); //Si es true, parsedTodos sera igual al contenido de localStorageTodos convertido en un array el cual previamente fue convertido en string
+    parsedItem = JSON.parse(localStorageItem); //Si es true, parsedItem sera igual al contenido de localStorageItem convertido en un array el cual previamente fue convertido en string
   }
 
-  const [todos, setTodos] = React.useState(parsedTodos);
+  const [item, setItem] = useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+}
+
+function App() {
+  //Gracias a useLocalStorage, el componente app no llama directamente a localStorage
+
+  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
 
   // función texto sin tildes
@@ -54,25 +69,20 @@ function App() {
 
   const totalTodos = todos.length;
 
-  const saveTodos = (newTodos) => {
-    localStorage.setItem("TODOS_V1", JSON.stringify(newTodos));
-    setTodos(newTodos);
-  };
-
   const completeTodos = (text) => {
-    const newTodos = [...todos]; //Copia del estado del array de todos
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text); //Recorre la copia del array (newTodos) para encontrar el index, segun el parametro indicado
-    newTodos[todoIndex].completed
-      ? (newTodos[todoIndex].completed = false)
-      : (newTodos[todoIndex].completed = true);
-    saveTodos(newTodos);
+    const newItem = [...todos]; //Copia del estado del array de todos
+    const todoIndex = newItem.findIndex((todo) => todo.text === text); //Recorre la copia del array (newItem) para encontrar el index, segun el parametro indicado
+    newItem[todoIndex].completed
+      ? (newItem[todoIndex].completed = false)
+      : (newItem[todoIndex].completed = true);
+    saveTodos(newItem);
   };
 
   const deleteTodos = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
+    const newItem = [...todos];
+    const todoIndex = newItem.findIndex((todo) => todo.text === text);
+    newItem.splice(todoIndex, 1);
+    saveTodos(newItem);
   };
   return (
     <React.Fragment>
