@@ -1,4 +1,4 @@
-import "./TodoItem.scss";
+import "./Styles.scss";
 import trash from "../../assets/hover=false.svg";
 function TodoItem({ tarea, status, onComplete, onDelete }) {
   return (

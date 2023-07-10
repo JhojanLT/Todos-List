@@ -1,4 +1,4 @@
-import "./TodoCounter.scss";
+import "./Styles.scss";
 
 function TodoCounter({ total, completed }) {
   return (

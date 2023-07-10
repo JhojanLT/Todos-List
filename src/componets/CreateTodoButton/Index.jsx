@@ -1,4 +1,4 @@
-import "./CreateTodoButton.scss";
+import "./Styles.scss";
 import plus from "../../assets/plus.svg";
 function CreateTodoButton() {
   return (
