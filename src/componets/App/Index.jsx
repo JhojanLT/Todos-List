@@ -1,19 +1,19 @@
-import { TodoCounter } from "./componets/TodoCounter/Index";
-import { TodoItem } from "./componets/TodoItem/Index";
-import { TodoList } from "./componets/TodoList/Index";
-import { CreateTodoButton } from "./componets/CreateTodoButton/Index";
-import { TodoHeader } from "./componets/TodoHeader/Index";
-import "./App.scss";
+import { TodoCounter } from "../TodoCounter/Index";
+import { TodoItem } from "../TodoItem/Index";
+import { TodoList } from "../TodoList/Index";
+import { CreateTodoButton } from "../CreateTodoButton/Index";
+import { TodoHeader } from "../TodoHeader/Index";
+import { useLocalStorage } from "./useLocalStorage";
 /*import "./scss/variables.scss";
 import "./scss/font.scss";
 import "./scss/function.scss";
 import "./scss/mixing.scss";
 import "./scss/reset.scss";*/
 
+import { TodoSearch } from "../TodoSearch/Index";
+import { TodoCreate } from "../TodoCreate/Index";
+import "./Styles.scss";
 import React, { useState } from "react";
-import { TodoSearch } from "./componets/TodoSearch/Index";
-import { TodoCreate } from "./componets/TodoCreate/Index";
-// import { useState } from "react";
 
 // const defaultTodo = [
 //   { text: "tarea 1", completed: false },
@@ -27,27 +27,6 @@ import { TodoCreate } from "./componets/TodoCreate/Index";
 // localStorage.setItem(itemName, defaultTodo);
 
 //ESTE ES UN CUSTOM HOOK
-function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName); // asignoitemNamea la variable localStorageItem, que en este momento es vacia
-
-  let parsedItem;
-
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue)); //Si localStorageItem es false, se asignara un array vacio al localStorage y a la variable parsedItem
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem); //Si es true, parsedItem sera igual al contenido de localStorageItem convertido en un array el cual previamente fue convertido en string
-  }
-
-  const [item, setItem] = useState(parsedItem);
-
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem);
-  };
-
-  return [item, saveItem];
-}
 
 function App() {
   //Gracias a useLocalStorage, el componente app no llama directamente a localStorage
